@@ -1,0 +1,4 @@
+[gerrit]
+host=review.gerrithub.io
+project=maxmosk/maxpkgs.git
+defaultbranch=main
