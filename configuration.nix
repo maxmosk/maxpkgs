@@ -1,8 +1,9 @@
-{ config, lib, pkgs, ... }:
+{ config, pkgs, ... }:
 
 {
   imports = [
       ./hardware-configuration.nix
+      ./config
   ];
 
   hardware.bluetooth.enable = true;
@@ -45,19 +46,12 @@
     vimAlias = true;
   };
 
-  services.xserver.enable = true;
-  programs.hyprland.enable = true;
-  programs.hyprlock.enable = true;
-  programs.waybar.enable = true;
-
   nixpkgs.config.allowUnfree = true;
   environment.systemPackages = with pkgs; [
     google-chrome
-    kitty
-    wofi
     telegram-desktop
-    brightnessctl
-    kanshi
+    git
+    git-review
   ];
 
   system.copySystemConfiguration = true;
