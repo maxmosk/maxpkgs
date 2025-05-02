@@ -8,22 +8,27 @@
 
   hardware.bluetooth.enable = true;
 
-  boot.loader.grub = {
-    enable = true;
-    device = "nodev";
-    efiSupport = true;
+  boot = {
+    loader = {
+      grub = {
+        enable = true;
+        device = "nodev";
+        efiSupport = true;
+      };
+      efi.canTouchEfiVariables = true;
+    };
+    initrd.luks.devices.root = {
+      name = "root";
+      device = "/dev/disk/by-uuid/e68c21be-8990-45c6-bf17-f685b1947499";
+      preLVM = true;
+      allowDiscards = true;
+    };
   };
-  boot.loader.efi.canTouchEfiVariables = true;
 
-  boot.initrd.luks.devices.root = {
-    name = "root";
-    device = "/dev/disk/by-uuid/e68c21be-8990-45c6-bf17-f685b1947499";
-    preLVM = true;
-    allowDiscards = true;
+  networking = {
+    hostName = "moskalets-nb";
+    networkmanager.enable = true;
   };
-
-  networking.hostName = "moskalets-nb";
-  networking.networkmanager.enable = true;
 
   time.timeZone = "Europe/Moscow";
   i18n.defaultLocale = "en_US.UTF-8";
@@ -36,7 +41,10 @@
   users.users.moskalets = {
     isNormalUser = true;
     description = "Maxim Moskalets";
-    extraGroups = [ "wheel" "networkmanager" ];
+    extraGroups = [
+      "wheel"
+      "networkmanager"
+    ];
   };
 
   programs.neovim = {
@@ -52,6 +60,7 @@
     telegram-desktop
     git
     git-review
+    pavucontrol
   ];
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
