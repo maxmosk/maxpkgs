@@ -7,9 +7,19 @@
     };
   };
 
-  outputs = { self, nixpkgs, ... }@inputs: {
+  outputs = { self, nixpkgs, home-manager, ... }@attrs: {
     nixosConfigurations.moskalets-nb = nixpkgs.lib.nixosSystem {
-      modules = [ ./configuration.nix ];
+      system = "x86_64-linux";
+      specialArgs = { } // attrs;
+      modules = [
+        ./configuration.nix
+	home-manager.nixosModules.home-manager
+        {
+          home-manager.useGlobalPkgs = true;
+          home-manager.useUserPackages = true;
+          home-manager.users.moskalets = ./home.nix;
+        }
+      ];
     };
   };
 }
