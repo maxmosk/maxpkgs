@@ -2,6 +2,7 @@
 
 {
   services.xserver.enable = true;
+  services.displayManager.sddm.enable = true;
   programs.hyprland = {
     enable = true;
   };
@@ -13,6 +14,7 @@
     wofi
     brightnessctl
     playerctl
+    wl-clipboard
   ];
   fonts.packages = with pkgs; [
     font-awesome
