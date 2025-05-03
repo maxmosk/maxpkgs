@@ -1,9 +1,10 @@
-{ config, pkgs, ... }:
+{ config, pkgs, home-manager, ... }:
 
 {
   imports = [
       ./hardware-configuration.nix
       ./config
+      home-manager.nixosModules.default
   ];
 
   hardware.bluetooth.enable = true;
@@ -37,6 +38,7 @@
     enable = true;
     pulse.enable = true;
   };
+  services.power-profiles-daemon.enable = true;
 
   users.users.moskalets = {
     isNormalUser = true;
@@ -58,12 +60,18 @@
   environment.systemPackages = with pkgs; [
     google-chrome
     telegram-desktop
-    git
-    git-review
     pavucontrol
   ];
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
+
+  home-manager.users.moskalets.home = {
+    stateVersion = "25.05";
+    username = "moskalets";
+    homeDirectory = "/home/moskalets";
+  };
+
+  services.udev.packages = [ pkgs.qmk-udev-rules ];
 
   system.stateVersion = "25.05";
 }

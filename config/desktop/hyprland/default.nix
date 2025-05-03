@@ -19,8 +19,29 @@
     brightnessctl
     playerctl
     wl-clipboard
+    hyprpaper
   ];
   fonts.packages = with pkgs; [
     font-awesome
   ];
+
+  home-manager.users.moskalets =
+  {
+    wayland.windowManager.hyprland = {
+      enable = true;
+      systemd.enable = true;
+      extraConfig = builtins.readFile (./. + "/hyprland.conf");
+    };
+    services.hyprpaper = {
+      enable = true;
+      settings =
+      let
+        anime = builtins.toString (./. + "/anime.jpg");
+      in
+      {
+        wallpaper = ", ${anime}";
+        preload = anime;
+      };
+    };
+  };
 }
