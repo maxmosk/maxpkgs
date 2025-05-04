@@ -1,7 +1,7 @@
 {
   imports = [
-    ./desktop
     ./development
+    ./human
     ./laptop
   ];
 }

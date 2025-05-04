@@ -34,10 +34,6 @@
   time.timeZone = "Europe/Moscow";
   i18n.defaultLocale = "en_US.UTF-8";
 
-  services.pipewire = {
-    enable = true;
-    pulse.enable = true;
-  };
   services.power-profiles-daemon.enable = true;
 
   users.users.moskalets = {
@@ -60,7 +56,6 @@
   environment.systemPackages = with pkgs; [
     google-chrome
     telegram-desktop
-    pavucontrol
   ];
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];

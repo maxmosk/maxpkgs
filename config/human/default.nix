@@ -1,6 +1,7 @@
 {
   imports = [
-    ./kanshi
+    ./audio
     ./hyprland
+    ./kanshi
   ];
 }
