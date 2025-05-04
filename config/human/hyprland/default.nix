@@ -27,6 +27,11 @@
 
   home-manager.users.moskalets =
   {
+    home.pointerCursor = {
+      enable = true;
+      package = pkgs.bibata-cursors;
+      name = "Bibata-Modern-Classic";
+    };
     wayland.windowManager.hyprland = {
       enable = true;
       systemd.enable = true;
