@@ -6,21 +6,21 @@
     settings = [
       {
         profile.name = "laptop";
-	profile.outputs = [
-	  {
-	    criteria = "eDP-1";
+        profile.outputs = [
+          {
+            criteria = "eDP-1";
             status = "enable";
-	  }
-	];
+          }
+        ];
       }
       {
         profile.name = "hdmi";
         profile.outputs = [
-	  {
+          {
             criteria = "eDP-1";
             status = "disable";
-	  }
-	  {
+          }
+          {
             criteria = "HDMI-A-1";
             status = "enable";
           }
