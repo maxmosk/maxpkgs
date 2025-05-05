@@ -7,8 +7,6 @@
       home-manager.nixosModules.default
   ];
 
-  hardware.bluetooth.enable = true;
-
   boot = {
     loader = {
       grub = {
@@ -24,11 +22,6 @@
       preLVM = true;
       allowDiscards = true;
     };
-  };
-
-  networking = {
-    hostName = "moskalets-nb";
-    networkmanager.enable = true;
   };
 
   time.timeZone = "Europe/Moscow";
