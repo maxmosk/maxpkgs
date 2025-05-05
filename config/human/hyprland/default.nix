@@ -12,6 +12,8 @@
     hyprlock.enable = true;
     waybar.enable = true;
   };
+  # Needed for waybar power menu
+  services.power-profiles-daemon.enable = true;
 
   environment.systemPackages = with pkgs; [
     kitty

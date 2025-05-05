@@ -2,9 +2,9 @@
 
 {
   imports = [
-      ./hardware-configuration.nix
-      ./config
-      home-manager.nixosModules.default
+    ./hardware-configuration.nix
+    ./config
+    home-manager.nixosModules.default
   ];
 
   boot = {
@@ -27,8 +27,6 @@
   time.timeZone = "Europe/Moscow";
   i18n.defaultLocale = "en_US.UTF-8";
 
-  services.power-profiles-daemon.enable = true;
-
   users.users.moskalets = {
     isNormalUser = true;
     description = "Maxim Moskalets";
@@ -36,13 +34,6 @@
       "wheel"
       "networkmanager"
     ];
-  };
-
-  programs.neovim = {
-    enable = true;
-    defaultEditor = true;
-    viAlias = true;
-    vimAlias = true;
   };
 
   nixpkgs.config.allowUnfree = true;
