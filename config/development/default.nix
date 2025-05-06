@@ -12,4 +12,8 @@
     viAlias = true;
     vimAlias = true;
   };
+
+  environment.systemPackages = with pkgs; [
+    vscode
+  ];
 }

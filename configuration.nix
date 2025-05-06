@@ -37,10 +37,6 @@
   };
 
   nixpkgs.config.allowUnfree = true;
-  environment.systemPackages = with pkgs; [
-    google-chrome
-    telegram-desktop
-  ];
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
