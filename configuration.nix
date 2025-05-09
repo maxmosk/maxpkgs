@@ -40,10 +40,13 @@
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
-  home-manager.users.moskalets.home = {
-    stateVersion = "25.05";
-    username = "moskalets";
-    homeDirectory = "/home/moskalets";
+  home-manager = {
+    useGlobalPkgs = true;
+    users.moskalets.home = {
+      stateVersion = "25.05";
+      username = "moskalets";
+      homeDirectory = "/home/moskalets";
+    };
   };
 
   services.udev.packages = [ pkgs.qmk-udev-rules ];

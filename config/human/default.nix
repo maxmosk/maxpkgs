@@ -11,4 +11,16 @@
     google-chrome
     telegram-desktop
   ];
+
+  programs.chromium = {
+    enable = true;
+    extraOpts = {
+      "PasswordManagerEnabled" = false;
+      "SpellcheckEnabled" = true;
+      "SpellcheckLanguage" = [
+        "ru-RU"
+        "en-US"
+      ];
+    };
+  };
 }
