@@ -18,7 +18,7 @@
     };
     initrd.luks.devices.root = {
       name = "root";
-      device = "/dev/disk/by-uuid/e68c21be-8990-45c6-bf17-f685b1947499";
+      device = "/dev/disk/by-uuid/743c6a9d-8564-4d6f-9b7d-2a81364f32d0";
       preLVM = true;
       allowDiscards = true;
     };
