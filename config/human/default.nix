@@ -10,6 +10,10 @@
   environment.systemPackages = with pkgs; [
     google-chrome
     telegram-desktop
+    libreoffice-qt
+    hunspell
+    hunspellDicts.en_US
+    hunspellDicts.ru_RU
   ];
 
   programs.chromium = {
