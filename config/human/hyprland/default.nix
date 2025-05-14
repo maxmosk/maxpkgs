@@ -79,5 +79,9 @@
         bluetooth.on-click = "${pkgs.blueman}/bin/blueman-manager";
       };
     };
+    programs.kitty = {
+      enable = true;
+      settings.font_size = 18;
+    };
   };
 }
