@@ -11,5 +11,5 @@
       git-review
     ];
   };
+  programs.ssh.startAgent = true;
 }
-

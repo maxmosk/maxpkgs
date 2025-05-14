@@ -15,5 +15,6 @@
 
   environment.systemPackages = with pkgs; [
     vscode
+    picocom
   ];
 }
