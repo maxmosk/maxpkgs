@@ -3,6 +3,7 @@
     ./development
     ./connectivity
     ./human
-    ./laptop
+    ./nix.nix
+    ./employment.nix
   ];
 }

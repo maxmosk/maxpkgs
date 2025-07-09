@@ -2,9 +2,8 @@
 
 {
   imports = [
-    ./audio
-    ./hyprland
-    ./kanshi
+    ./audio.nix
+    ./hyprland.nix
   ];
 
   environment.systemPackages = with pkgs; [
@@ -25,6 +24,8 @@
         "ru-RU"
         "en-US"
       ];
+      "AuthNegotiateDelegateAllowlist" = "*.kaspersky.com,*.avp.ru";
+      "AuthServerAllowlist" = "*.kaspersky.com,*.avp.ru";
     };
   };
 
