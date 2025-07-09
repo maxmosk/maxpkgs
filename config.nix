@@ -1,4 +1,10 @@
-{ config, pkgs, home-manager, ... }:
+{
+  inputs,
+  config,
+  pkgs,
+  home-manager,
+  ...
+}:
 
 {
   imports = [
@@ -22,14 +28,36 @@
       preLVM = true;
       allowDiscards = true;
     };
+    kernelPackages = pkgs.linuxPackages_latest;
+    kernel.sysctl."kernel.sysrq" = 1;
   };
 
   time.timeZone = "Europe/Moscow";
   i18n.defaultLocale = "en_US.UTF-8";
 
-  users.users.moskalets = {
-    isNormalUser = true;
-    description = "Maxim Moskalets";
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
+
+  home-manager = {
+    useGlobalPkgs = true;
+    users.moskalets = {
+      imports = [ ./home.nix ];
+    };
+  };
+
+  services.udev.packages = [
+    pkgs.qmk-udev-rules
+    pkgs.stlink
+  ];
+  programs.pulseview.enable = true;
+
+  kl-kerberos.enable = true;
+  networking.kl-proxy.enable = true;
+  user = {
+    name = "moskalets";
+    humanName = "Maxim Moskalets";
     extraGroups = [
       "wheel"
       "networkmanager"
@@ -37,20 +65,9 @@
   };
 
   nixpkgs.config.allowUnfree = true;
-
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
-
-  home-manager = {
-    useGlobalPkgs = true;
-    users.moskalets.home = {
-      stateVersion = "25.05";
-      username = "moskalets";
-      homeDirectory = "/home/moskalets";
-    };
-  };
-
-  services.udev.packages = [ pkgs.qmk-udev-rules ];
+  nixpkgs.config.permittedInsecurePackages = [
+    "libsoup-2.74.3"
+  ];
 
   system.stateVersion = "25.05";
 }
-

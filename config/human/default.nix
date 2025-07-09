@@ -4,7 +4,6 @@
   imports = [
     ./audio
     ./hyprland
-    ./kanshi
   ];
 
   environment.systemPackages = with pkgs; [
@@ -14,6 +13,7 @@
     hunspell
     hunspellDicts.en_US
     hunspellDicts.ru_RU
+    home-manager
   ];
 
   programs.chromium = {
@@ -25,6 +25,8 @@
         "ru-RU"
         "en-US"
       ];
+      "AuthNegotiateDelegateAllowlist" = "*.kaspersky.com,*.avp.ru";
+      "AuthServerAllowlist" = "*.kaspersky.com,*.avp.ru";
     };
   };
 
