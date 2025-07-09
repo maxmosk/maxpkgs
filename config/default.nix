@@ -1,8 +1,1 @@
-{
-  imports = [
-    ./development
-    ./connectivity
-    ./human
-    ./laptop
-  ];
-}
+{ imports = [ ./development ./connectivity ./human ./laptop ]; }

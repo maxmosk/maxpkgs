@@ -5,7 +5,5 @@
     enable = true;
     pulse.enable = true;
   };
-  environment.systemPackages = with pkgs; [
-    pavucontrol
-  ];
+  environment.systemPackages = with pkgs; [ pavucontrol ];
 }

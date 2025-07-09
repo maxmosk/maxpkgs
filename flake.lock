@@ -7,11 +7,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1746798521,
-        "narHash": "sha256-axfz/jBEH9XHpS7YSumstV7b2PrPf7L8bhWUtLBv3nA=",
+        "lastModified": 1752093218,
+        "narHash": "sha256-+3rXu8ewcNDi65/2mKkdSGrivQs5zEZVp5aYszXC0d0=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "e95a7c5b6fa93304cd2fd78cf676c4f6d23c422c",
+        "rev": "206ed3c71418b52e176f16f58805c96e84555320",
         "type": "github"
       },
       "original": {
@@ -20,17 +20,40 @@
         "type": "github"
       }
     },
+    "kaspersky-nixpkgs": {
+      "inputs": {
+        "home-manager": [
+          "home-manager"
+        ],
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1752134360,
+        "narHash": "sha256-Z4Uv4Rd/Ys4uEcl0vPhwHCS7tUan2GbXSjDdjA58u1Y=",
+        "ref": "refs/heads/kos/master",
+        "rev": "fac86c774252f201fad2653207fa136f2d4251e3",
+        "revCount": 161,
+        "type": "git",
+        "url": "file:/home/moskalets/shvedov-nixpkgs-local"
+      },
+      "original": {
+        "type": "git",
+        "url": "file:/home/moskalets/shvedov-nixpkgs-local"
+      }
+    },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1746663147,
-        "narHash": "sha256-Ua0drDHawlzNqJnclTJGf87dBmaO/tn7iZ+TCkTRpRc=",
-        "owner": "NixOS",
+        "lastModified": 1747933650,
+        "narHash": "sha256-Zfivxiasoen9kRYraZAq/f9/pB4Jn3x8exvCf3PrMPY=",
+        "owner": "maxmosk",
         "repo": "nixpkgs",
-        "rev": "dda3dcd3fe03e991015e9a74b22d35950f264a54",
+        "rev": "cf11a72b6a9dbf070c960e77bd05197a9d1b704c",
         "type": "github"
       },
       "original": {
-        "owner": "NixOS",
+        "owner": "maxmosk",
         "ref": "nixos-unstable",
         "repo": "nixpkgs",
         "type": "github"
@@ -39,6 +62,7 @@
     "root": {
       "inputs": {
         "home-manager": "home-manager",
+        "kaspersky-nixpkgs": "kaspersky-nixpkgs",
         "nixpkgs": "nixpkgs"
       }
     }
