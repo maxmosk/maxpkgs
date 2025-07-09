@@ -1,11 +1,8 @@
-{ config, pkgs, home-manager, ... }:
+{ inputs, config, pkgs, home-manager, ... }:
 
 {
-  imports = [
-    ./hardware-configuration.nix
-    ./config
-    home-manager.nixosModules.default
-  ];
+  imports =
+    [ ./hardware-configuration.nix ./config home-manager.nixosModules.default ];
 
   boot = {
     loader = {
@@ -22,34 +19,44 @@
       preLVM = true;
       allowDiscards = true;
     };
+    kernelPackages = pkgs.linuxPackages_latest;
+    kernel.sysctl."kernel.sysrq" = 1;
   };
 
   time.timeZone = "Europe/Moscow";
   i18n.defaultLocale = "en_US.UTF-8";
 
-  users.users.moskalets = {
-    isNormalUser = true;
-    description = "Maxim Moskalets";
-    extraGroups = [
-      "wheel"
-      "networkmanager"
-    ];
-  };
-
-  nixpkgs.config.allowUnfree = true;
-
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   home-manager = {
     useGlobalPkgs = true;
-    users.moskalets.home = {
-      stateVersion = "25.05";
-      username = "moskalets";
-      homeDirectory = "/home/moskalets";
-    };
+    users.moskalets = { imports = [ ./home.nix ]; };
   };
 
   services.udev.packages = [ pkgs.qmk-udev-rules ];
+  programs.pulseview.enable = true;
+
+  kl-kerberos.enable = true;
+  networking.kl-proxy.enable = true;
+  user = {
+    name = "moskalets";
+    humanName = "Maxim Moskalets";
+    extraGroups = [ "wheel" "networkmanager" ];
+  };
+
+  systemd.user.services.add_ssh_keys = {
+    script = ''
+      eval `${pkgs.openssh}/bin/ssh-agent -s`
+      ${pkgs.openssh}/bin/ssh-add $HOME/.ssh/id_ed25519_agenix
+      ${pkgs.openssh}/bin/ssh-add $HOME/.ssh/id_ed25519_gerrit
+      ${pkgs.openssh}/bin/ssh-add $HOME/.ssh/id_ed25519_gerrithub
+      ${pkgs.openssh}/bin/ssh-add $HOME/.ssh/id_ed25519_github
+      ${pkgs.openssh}/bin/ssh-add $HOME/.ssh/id_ed25519_office
+    '';
+    wantedBy = [ "multi-user.target" ];
+  };
+
+  nixpkgs.config.allowUnfree = true;
 
   system.stateVersion = "25.05";
 }

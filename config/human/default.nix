@@ -1,11 +1,7 @@
 { config, pkgs, ... }:
 
 {
-  imports = [
-    ./audio
-    ./hyprland
-    ./kanshi
-  ];
+  imports = [ ./audio ./hyprland ];
 
   environment.systemPackages = with pkgs; [
     google-chrome
@@ -14,6 +10,7 @@
     hunspell
     hunspellDicts.en_US
     hunspellDicts.ru_RU
+    home-manager
   ];
 
   programs.chromium = {
@@ -21,10 +18,9 @@
     extraOpts = {
       "PasswordManagerEnabled" = false;
       "SpellcheckEnabled" = true;
-      "SpellcheckLanguage" = [
-        "ru-RU"
-        "en-US"
-      ];
+      "SpellcheckLanguage" = [ "ru-RU" "en-US" ];
+      "AuthNegotiateDelegateAllowlist" = "*.kaspersky.com,*.avp.ru";
+      "AuthServerAllowlist" = "*.kaspersky.com,*.avp.ru";
     };
   };
 
