@@ -1,10 +1,7 @@
 { config, pkgs, ... }:
 
 {
-  imports = [
-    ./git
-    ./printing
-  ];
+  imports = [ ./git ./printing ];
 
   programs.neovim = {
     enable = true;
@@ -13,8 +10,5 @@
     vimAlias = true;
   };
 
-  environment.systemPackages = with pkgs; [
-    vscode
-    picocom
-  ];
+  environment.systemPackages = with pkgs; [ vscode picocom ];
 }
