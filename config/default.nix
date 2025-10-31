@@ -1,8 +1,5 @@
 {
   imports = [
-    ./development
-    ./connectivity
-    ./human
-    ./laptop
+    ./nix.nix
   ];
 }
