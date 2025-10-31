@@ -18,27 +18,10 @@
   maxpkgs.games.enable = true;
   maxpkgs.gui.enable = true;
   maxpkgs.networking.enable = true;
+  maxpkgs.hardware.laptop = true;
 
   hardware.bluetooth.enable = true;
 
-  boot = {
-    loader = {
-      grub = {
-        enable = true;
-        device = "nodev";
-        efiSupport = true;
-      };
-      efi.canTouchEfiVariables = true;
-    };
-    initrd.luks.devices.root = {
-      name = "root";
-      device = "/dev/disk/by-uuid/743c6a9d-8564-4d6f-9b7d-2a81364f32d0";
-      preLVM = true;
-      allowDiscards = true;
-    };
-    kernelPackages = pkgs.linuxPackages_latest;
-    kernel.sysctl."kernel.sysrq" = 1;
-  };
   boot.binfmt.emulatedSystems = [
     "aarch64-linux"
   ];

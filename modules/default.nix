@@ -5,5 +5,6 @@
     ./games.nix
     ./gui.nix
     ./networking.nix
+    ./hardware.nix
   ];
 }
