@@ -15,6 +15,7 @@
 
   maxpkgs.audio.enable = true;
   maxpkgs.employment.enable = true;
+  maxpkgs.games.enable = true;
   maxpkgs.gui.enable = true;
   maxpkgs.networking.enable = true;
 
@@ -103,11 +104,6 @@
       "networkmanager"
     ];
   };
-  virtualisation.virtualbox.host = {
-    enable = true;
-    enableExtensionPack = true;
-  };
-  users.extraGroups.vboxusers.members = [ "moskalets" ];
 
   nixpkgs.config.allowUnfree = true;
 
