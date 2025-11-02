@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, lib, ... }:
 {
   home = {
     stateVersion = "25.05";
@@ -6,21 +6,16 @@
     homeDirectory = "/home/moskalets";
 
     packages = with pkgs; [
-      webcamoid
-      shotcut
       vlc
       yandex-music
       google-chrome
       telegram-desktop
-      libreoffice-qt
-      hunspell
-      hunspellDicts.en_US
-      hunspellDicts.ru_RU
     ];
   };
 
   maxpkgs.employment.enable = true;
   maxpkgs.gui.enable = true;
+  maxpkgs.blog.enable = true;
 
   programs.bash.enable = true;
   programs.neovim = {
