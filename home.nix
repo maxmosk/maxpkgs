@@ -6,28 +6,16 @@
     homeDirectory = "/home/moskalets";
 
     packages = with pkgs; [
-      git-review
-      git-lfs
-      freecad
-      orca-slicer
       webcamoid
       shotcut
       vlc
       yandex-music
-      kicad
-      sigrok-cli
-      sshfs
-      nixos-shell
-      md-tui
-      git-gr
       google-chrome
       telegram-desktop
       libreoffice-qt
       hunspell
       hunspellDicts.en_US
       hunspellDicts.ru_RU
-      vscode
-      picocom
     ];
   };
 
