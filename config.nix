@@ -1,6 +1,7 @@
 {
   config,
   pkgs,
+  nix-index-database,
   home-manager,
   kaspersky-nixpkgs,
   ...
@@ -11,6 +12,7 @@
     ./hardware-configuration.nix
     ./config
     home-manager.nixosModules.default
+    nix-index-database.nixosModules.nix-index
   ];
 
   maxpkgs.audio.enable = true;
@@ -41,6 +43,7 @@
   };
 
   programs.pay-respects.enable = true;
+  programs.nix-index-database.comma.enable = true;
   security.sudo-rs.enable = true;
   services.udev.packages = [
     pkgs.qmk-udev-rules

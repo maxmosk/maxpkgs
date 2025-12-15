@@ -7,6 +7,10 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nix-index-database = {
+      url = "github:nix-community/nix-index-database";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     kaspersky-nixpkgs = {
       url = "git+https://hqrndtfs.avp.ru/tfs/DefaultCollection/FT-TEE/_git/kaspersky-nixpkgs";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -19,6 +23,7 @@
       self,
       nixpkgs,
       home-manager,
+      nix-index-database,
       kaspersky-nixpkgs,
     }@attrs:
     let
