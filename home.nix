@@ -10,6 +10,7 @@
       yandex-music
       google-chrome
       telegram-desktop
+      picoscope
     ];
   };
 

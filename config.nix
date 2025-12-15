@@ -50,6 +50,7 @@
     pkgs.qmk-udev-rules
     pkgs.stlink
     pkgs.libsigrok
+    pkgs.picoscope.rules
   ];
 
   services.thermald.enable = true;
@@ -89,8 +90,10 @@
     extraGroups = [
       "wheel"
       "networkmanager"
+      "pico"
     ];
   };
+  users.groups.pico = { };
 
   nixpkgs.config.allowUnfree = true;
 
