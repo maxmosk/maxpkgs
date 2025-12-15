@@ -12,6 +12,7 @@
     lib.mkIf config.maxpkgs.blog.enable [
       webcamoid
       shotcut
+      shotcut-appimage
       libreoffice-qt
       hunspell
       hunspellDicts.en_US
