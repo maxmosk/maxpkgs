@@ -2,7 +2,8 @@
   description = "Maxim Moskalets NixOS flake";
 
   inputs = {
-    nixpkgs.url = "github:maxmosk/nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    proxydetox-nixpkgs.url = "github:ein-shved/nixpkgs/proxydetox";
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -22,6 +23,7 @@
     {
       self,
       nixpkgs,
+      proxydetox-nixpkgs,
       home-manager,
       nix-index-database,
       kaspersky-nixpkgs,
@@ -35,6 +37,8 @@
         inherit system;
         specialArgs = attrs;
         modules = [
+          "${proxydetox-nixpkgs}/nixos/modules/services/networking/proxydetox.nix"
+          { services.proxydetox.package = proxydetox-nixpkgs.legacyPackages.${system}.pkgs.proxydetox; }
           kaspersky-nixpkgs.nixosModules.modules
           kaspersky-nixpkgs.nixosModules.pkgs
           ./config.nix
