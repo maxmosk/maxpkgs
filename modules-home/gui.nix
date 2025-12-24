@@ -86,7 +86,10 @@
     };
     programs.kitty = {
       enable = true;
-      settings.font_size = 18;
+      font = {
+        name = "CommitMono Nerd Font";
+        size = 18;
+      };
     };
     services.hypridle.enable = true;
     services.hypridle.settings = {
