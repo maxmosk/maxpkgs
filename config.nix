@@ -98,4 +98,11 @@
   nixpkgs.config.allowUnfree = true;
 
   system.stateVersion = "25.05";
+  programs.throne = {
+    enable = true;
+    tunMode = {
+      enable = true;
+      setuid = true;
+    };
+  };
 }
